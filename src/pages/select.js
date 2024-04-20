@@ -1,11 +1,18 @@
 import Header from "../components/HeaderBlack";
 import { useState } from "react";
 import axios from "axios";
+import Spinner from "./components/Spinner";
+
+
+
 function Select(props){
    
     const colors = ["Colour", "Human Emotions","Vicinity", "Text"]; // Assuming you want "purple" instead of "yellow"
 
     const [selected,setSelected] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+
 
     const handleClick = (color) => {
         if(selected.includes(color)){
@@ -32,8 +39,6 @@ function Select(props){
             include_emotion = include_emotion || item === "Human Emotions"; // Check for "include_large" (already present in selected)
             include_text = include_text || item === "Text"; // Check for "include_text"
           }
-          
-
         const base64String = props.imageBase64.split(',')[1];
         const data = {
           imageData: base64String,
@@ -42,15 +47,15 @@ function Select(props){
           include_emotion:include_emotion,
           include_text:include_text
         }
+        setIsLoading(true);
         axios.post('https://mianakbarjan.pythonanywhere.com/api/openAIVision', {imageData:data }, {
       headers: {
         'Content-Type': 'application/json',
       },
     })
       .then(response => {
-
-        console.log('Response from server:', response.data);
         props.setsubmitButton(response.data);
+        setIsLoading(false);
       })
       .catch(error => {
         console.error('Error:', error);
