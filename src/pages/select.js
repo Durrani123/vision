@@ -9,7 +9,7 @@ function Select(props){
     const colors = ["Colour", "Human Emotions","Vicinity", "Text"]; // Assuming you want "purple" instead of "yellow"
 
     const [selected,setSelected] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
 
 
