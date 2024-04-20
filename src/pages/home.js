@@ -6,8 +6,37 @@ import axios from 'axios';
 function Home(props) {
   const [imageBase64, setImageBase64] = useState(null);
 
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
+  const handleImageUpload = async (event) => {
+    let file = event.target.files[0];
+    if (file.name.endsWith('.HEIC')){
+      if (typeof window !== 'undefined') {
+        // Import the library dynamically
+        const heic2any = 
+        (await import('heic2any')).default;
+      try {
+        const imageBlob = await heic2any({
+          blob: file,
+          toType: 'image/jpeg', // Convert HEIC to JPEG format
+          quality: 1, // Adjust the quality as needed
+        });
+        console.log(imageBlob)
+        const convertedFile = new File([imageBlob], file.name, {
+          type: 'image/jpeg', // Set the type to JPEG
+        });
+        file = convertedFile
+        console.log(file)
+        // Now you can use the convertedFile instead of the original file
+        // Continue with your logic here...
+      } catch (error) {
+        console.error('Error converting HEIC image:', error);
+      }
+    }
+    }
+    
+    
+    
+    
+    
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
