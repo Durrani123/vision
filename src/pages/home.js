@@ -16,7 +16,7 @@ function Home(props) {
         const imageBlob = await heic2any({
           blob: file,
           toType: 'image/jpeg', // Convert HEIC to JPEG format
-          quality: 1, // Adjust the quality as needed
+          quality: 0.6, // Adjust the quality as needed
         });
         const convertedFile = new File([imageBlob], file.name, {
           type: 'image/jpeg', // Set the type to JPEG
