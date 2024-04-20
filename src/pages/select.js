@@ -42,7 +42,7 @@ function Select(props){
           include_emotion:include_emotion,
           include_text:include_text
         }
-        axios.post('https://mianakbarjan.pythonanywhere.com/api/openAIVision', {imageData:data }, {
+        axios.post('https://ck6bz908-4040.euw.devtunnels.ms/api/openAIVision', {imageData:data }, {
       headers: {
         'Content-Type': 'application/json',
       },
