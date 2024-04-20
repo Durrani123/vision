@@ -1,5 +1,6 @@
 import Header from '../components/HeaderBlack';
 import Generate from '../components/Generate';
+import TextToSpeech from '../components/TextSpeech';
 
 function Result(props) {
   return (
@@ -10,6 +11,7 @@ function Result(props) {
     <div className='px-4 '>
 
       <Generate submitButton= {props.submitButton}/>
+
     </div>
     </div>
 

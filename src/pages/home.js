@@ -3,9 +3,11 @@ import Header from '../components/Header';
 import '../App.css';
 import axios from 'axios';
 import heic2any from 'heic2any';
+import TextToSpeech from '../components/TextSpeech';
+import Generate from '../components/Generate1';
+
 function Home(props) {
   const [imageBase64, setImageBase64] = useState(null);
-
   const handleImageUpload = async (event) => {
     let file = event.target.files[0];
     if (file.name.endsWith('.HEIC')){
@@ -71,6 +73,8 @@ function Home(props) {
 
   return (
     <div className='pl-5 pr-5 pt-5'>
+      {/* <Generate/> */}
+
       <div>
         <Header />
         <h1 className="mt-14 text-5xl font-black text-center">Upload Your Image</h1>
