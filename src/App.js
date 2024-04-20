@@ -25,11 +25,8 @@ function App() {
     return (
         <Router>
             <Routes>
-                <Route exact path="/" element={<Home setImageBase64={setImageBase64}/>} />
-                <Route exact path="/result" element={<Result />} />
-                <Route exact path="/select" element={<Select imageBase64={imageBase64} setOptions={setOptions}/>} />
                 <Route 
-                  path="/home"
+                  path="/"
                   element={
                     <>
                     {!submitButton ? (
