@@ -14,7 +14,7 @@ function Home(props) {
         const base64String = reader.result.split(',')[1];
         setImageBase64(reader.result);
         props.setImageBase64(reader.result);
-        sendImageToServer(base64String);
+        // sendImageToServer(base64String);
       };
       reader.readAsDataURL(file);
     }

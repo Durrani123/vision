@@ -1,7 +1,7 @@
 import Header from '../components/HeaderBlack';
 import Generate from '../components/Generate';
 
-function Result() {
+function Result(props) {
   return (
     <div className="bg-black h-screen">
     <div className='pl-5 pt-5'>
@@ -9,7 +9,7 @@ function Result() {
     </div>
     <div className='px-4 '>
 
-      <Generate/>
+      <Generate submitButton= {props.submitButton}/>
     </div>
     </div>
 

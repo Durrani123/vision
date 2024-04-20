@@ -1,8 +1,8 @@
 import Header from "./Header";
 import { useState, useEffect } from 'react';
 
-function Generate() {
-  const [initialText] = useState("This is the generated text, please generate it. This is the generated text, please generate it. This is the generated text, please generate it.");
+function Generate(props) {
+  const [initialText] = useState(props.submitButton.vision_response);
   const [generatedText, setGeneratedText] = useState("");
   const [index, setIndex] = useState(0);
   const [textLength, setTextLength] = useState(initialText.length);
