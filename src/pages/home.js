@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import '../App.css';
 import axios from 'axios';
-
+import heic2any from 'heic2any';
 function Home(props) {
   const [imageBase64, setImageBase64] = useState(null);
 
@@ -11,20 +11,17 @@ function Home(props) {
     if (file.name.endsWith('.HEIC')){
       if (typeof window !== 'undefined') {
         // Import the library dynamically
-        const heic2any = 
-        (await import('heic2any')).default;
+        
       try {
         const imageBlob = await heic2any({
           blob: file,
           toType: 'image/jpeg', // Convert HEIC to JPEG format
           quality: 1, // Adjust the quality as needed
         });
-        console.log(imageBlob)
         const convertedFile = new File([imageBlob], file.name, {
           type: 'image/jpeg', // Set the type to JPEG
         });
         file = convertedFile
-        console.log(file)
         // Now you can use the convertedFile instead of the original file
         // Continue with your logic here...
       } catch (error) {

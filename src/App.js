@@ -16,10 +16,7 @@ function App() {
     const [submitButton,setsubmitButton] = useState(null);
 
 
-    useEffect(()=>{
-        console.log(Options);
-    },[Options])
-
+  
 
 
     return (
